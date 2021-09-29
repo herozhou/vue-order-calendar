@@ -249,8 +249,13 @@
 
 
                 }
+                var daysLimit = 35;
+                var ds = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+                if (daysLimit < ds.getDate() + this.days.length) {
+                    daysLimit += 7;
+                }
                 //其他周
-                for (var i = 1; i <= 35 - this.currentWeek; i++) {
+                for (var i = 1; i <= daysLimit - this.currentWeek; i++) {
                     var d = new Date(str);
                     d.setDate(d.getDate() + i);
                     var dayobject={};
